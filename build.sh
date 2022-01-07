@@ -9,6 +9,7 @@ cmake="$projectdir/dep/cmake-3.10.0-rc1-Linux-x86_64.tar.gz"
 
 function initDir
 {
+  echo "init Dir"
   if [ -f "$lua" ] && [ ! -d "$luadir" ]; then
     cd $projectdir/dep && tar zxf $lua
   fi
@@ -39,25 +40,7 @@ function initDir
   fi
 }
 
-function installTools
-{
-  # git
-  which git > /dev/null
-  if [ ! $? -eq 0 ]; then
-    sudo yum install git -y
-  fi 
-
-  # FlameGraph
-  if [ ! -d "FlameGraph" ]; then
-    cd $projectdir
-    git clone https://github.com/brendangregg/FlameGraph.git
-  fi
-}
-
-echo "init Dir"
 initDir
-echo "installTools"
-installTools
 
 cd $builddir
 cmake -DMY_OPTION=$MY_OPTION -DCMAKE_BUILD_TYPE=debug ../../

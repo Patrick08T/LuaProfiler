@@ -11,7 +11,7 @@
 
 /* 
 sampling type : collect the function call times by sampling
-tick type : get the all call stack by this tick
+tick type : get the all call stacks by this tick
 */
 #define sampling
 
@@ -20,11 +20,8 @@ bool openHook = true;
 lua_State *gL;
 std::shared_ptr<TraceInfoTree> curTraceTree = nullptr;
 
-std::string gfilename;
-
 extern "C" int lrealstop(lua_State *L)
 {
-  // PDBG("lrealstop...");
   lua_sethook(L, 0, 0, 0);
   grunning = 0;
 
@@ -99,7 +96,7 @@ static void sig_handler(int sig)
   lrealstop(gL);
 }
 
-extern "C" int lrealstart(lua_State *L, int frequencyPerSecond, const char *file)
+extern "C" int lrealstart(lua_State *L, int frequencyPerSecond)
 {
   if (grunning)
   {
@@ -107,7 +104,6 @@ extern "C" int lrealstart(lua_State *L, int frequencyPerSecond, const char *file
     return -1;
   }
   grunning = 1;
-  gfilename = file;
   gL = L;
   signal(SIGINT, sig_handler);
   signal(SIGSEGV, sig_handler);
@@ -155,16 +151,14 @@ extern "C" int lrealstart(lua_State *L, int frequencyPerSecond, const char *file
 static int lstart(lua_State *L)
 {
   int frequency = (int)lua_tointeger(L, 1);
-  const char *file = lua_tostring(L, 2);
 
-  int ret = lrealstart(L, frequency, file);
+  int ret = lrealstart(L, frequency);
   lua_pushinteger(L, ret);
   return 1;
 }
 
 static int lstop(lua_State *L)
 {
-  // PDBG("lstop %s", gfilename.c_str());
   int ret = lrealstop(L);
 
   lua_pushinteger(L, ret);
