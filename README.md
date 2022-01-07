@@ -36,4 +36,6 @@ lua ./sample/sample.lua
 ./FlameGraph/flamegraph.pl samling.log > perf.svg
 ```
 
-## Done
+## Contact me
+506765973@qq.com
+q506765973@gmail.com
