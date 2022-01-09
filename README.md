@@ -37,7 +37,3 @@ lua ./sample/sample.lua
 ```
 ![image](https://user-images.githubusercontent.com/18464261/148522352-6f5734f3-ee38-4174-978c-99f353c81d6a.png)
 
-
-## Contact me
-506765973@qq.com
-q506765973@gmail.com
