@@ -1,7 +1,8 @@
 # Lua Profiler
 [<img src="https://img.shields.io/github/license/Patrick08T/LuaProfiler">](https://github.com/Patrick08T/LuaProfiler)
 
-This tool depends on lua5.3+ and [FlameGraph](https://github.com/brendangregg/FlameGraph.git)
+This tool depends on cmake3.0+, lua5.3+ and [FlameGraph](https://github.com/brendangregg/FlameGraph.git)
+Please check your environment. If you have already installed the cmake3.0+, please cancel the installation of cmake3.10 in build.sh.
 
 ## Theory
 Like Perf, this tool can collect the function call stack in lua VM by frequency, and she can output a flamegraph.
