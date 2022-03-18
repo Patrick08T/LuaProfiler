@@ -1,17 +1,14 @@
 # Lua Profiler
 [<img src="https://img.shields.io/github/license/Patrick08T/LuaProfiler">](https://github.com/Patrick08T/LuaProfiler)
 
-[中文版教程]()
+注意: 本库依赖于 cmake3.0+, lua5.3+ 和 [FlameGraph](https://github.com/brendangregg/FlameGraph.git)
 
-This tool depends on cmake3.0+, lua5.3+ and [FlameGraph](https://github.com/brendangregg/FlameGraph.git)
 
-Please check your environment. 
+## 原理
+类似于Perf, 这个工具能收集Lua虚拟机中的函数调用栈, 并将结果输出成火焰图.
 
-## Theory
-Like Perf, this tool can collect the function call stack in lua VM by frequency, and she can output a flamegraph.
-
-## Usage
-install lua5.3+
+## 使用教程
+安装 lua5.3+
 ```
 curl -R -O http://www.lua.org/ftp/lua-5.3.x.tar.gz
 tar zxf lua-5.3.x.tar.gz
@@ -21,23 +18,22 @@ make install
 cd ..
 ```
 
-install FlameGraph
+安装 FlameGraph
 ```
 git clone https://github.com/brendangregg/FlameGraph.git
 ```
 
-build project
+编译项目
 ```
 ./build.sh
 ```
 
-and then, you will get a libluaperf.so in ./bin/debug/ directory
+然后, 你就可以在 ./bin/debug/ 目录下看到 libluaperf.so 文件了
 
-## Test
+## 测试
 ```
 cp ./bin/debug/libluaperf.so ./
 lua ./sample/sample.lua
-git clone https://github.com/brendangregg/FlameGraph.git
 ./FlameGraph/flamegraph.pl samling.log > perf.svg
 ```
 ![image](https://user-images.githubusercontent.com/18464261/148522352-6f5734f3-ee38-4174-978c-99f353c81d6a.png)
