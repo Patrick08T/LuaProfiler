@@ -4,8 +4,6 @@ builddir="$projectdir/build/debug"
 rundir="$projectdir/bin/debug"
 luadir="$projectdir/dep/lua-5.3.6"
 lua="$projectdir/dep/lua-5.3.6.tar.gz"
-cmakedir="$projectdir/dep/cmake-3.10.0-rc1-Linux-x86_64"
-cmake="$projectdir/dep/cmake-3.10.0-rc1-Linux-x86_64.tar.gz"
 
 function initDir
 {
@@ -13,16 +11,6 @@ function initDir
   if [ -f "$lua" ] && [ ! -d "$luadir" ]; then
     cd $projectdir/dep && tar zxf $lua
   fi
-
-  if [ ! -d "$cmakedir" ]; then
-    cd $projectdir/dep
-    if [ ! -f "$cmake" ]; then
-      wget https://cmake.org/files/v3.10/cmake-3.10.0-rc1-Linux-x86_64.tar.gz $projectdir/dep
-    fi
-    tar zxf $cmake 
-  fi
-
-  export PATH=$cmakedir/bin/:$PATH
 
   if [ -d "$builddir" ]; then
       cd $builddir
@@ -43,7 +31,7 @@ function initDir
 initDir
 
 cd $builddir
-cmake -DMY_OPTION=$MY_OPTION -DCMAKE_BUILD_TYPE=debug ../../
+cmake -DMY_OPTION=$MY_OPTION -DCMAKE_BUILD_TYPE=release ../../
 make -j$(nproc)
 makeret=$?
 cd $dir
