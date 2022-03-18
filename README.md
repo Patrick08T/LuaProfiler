@@ -1,7 +1,7 @@
 # Lua Profiler
 [<img src="https://img.shields.io/github/license/Patrick08T/LuaProfiler">](https://github.com/Patrick08T/LuaProfiler)
 
-[中文版教程]()
+[中文版教程](https://github.com/Patrick08T/LuaProfiler/blob/main/README_Zh.md)
 
 This tool depends on cmake3.0+, lua5.3+ and [FlameGraph](https://github.com/brendangregg/FlameGraph.git)
 
@@ -37,7 +37,6 @@ and then, you will get a libluaperf.so in ./bin/debug/ directory
 ```
 cp ./bin/debug/libluaperf.so ./
 lua ./sample/sample.lua
-git clone https://github.com/brendangregg/FlameGraph.git
 ./FlameGraph/flamegraph.pl samling.log > perf.svg
 ```
 ![image](https://user-images.githubusercontent.com/18464261/148522352-6f5734f3-ee38-4174-978c-99f353c81d6a.png)
