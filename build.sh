@@ -13,10 +13,9 @@ function initDir
   fi
 
   if [ -d "$builddir" ]; then
-      cd $builddir
-  else
-      mkdir -p $builddir && cd $builddir
+      rm $builddir -rf
   fi
+  mkdir -p $builddir && cd $builddir
 
   if [ ! -d "$rundir" ];then
     mkdir -p $rundir

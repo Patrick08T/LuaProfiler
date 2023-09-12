@@ -1,18 +1,18 @@
 # Lua Profiler
 [<img src="https://img.shields.io/github/license/Patrick08T/LuaProfiler">](https://github.com/Patrick08T/LuaProfiler)
 
-注意: 本库依赖于 cmake3.0+, lua5.3+ 和 [FlameGraph](https://github.com/brendangregg/FlameGraph.git)
+注意: 本库依赖于 cmake2.8+, lua5.3+ 和 [FlameGraph](https://github.com/brendangregg/FlameGraph.git)
 
 
 ## 原理
 类似于Perf, 这个工具能收集Lua虚拟机中的函数调用栈, 并将结果输出成火焰图.
 
 ## 使用教程
-安装 lua5.3+
+安装 lua5.3.6
 ```
-curl -R -O http://www.lua.org/ftp/lua-5.3.x.tar.gz
-tar zxf lua-5.3.x.tar.gz
-cd lua-5.3.x
+curl -R -O http://www.lua.org/ftp/lua-5.3.6.tar.gz
+tar zxf lua-5.3.6.tar.gz
+cd lua-5.3.6
 make linux test
 make install
 cd ..
@@ -20,7 +20,7 @@ cd ..
 
 安装 FlameGraph
 ```
-git clone https://github.com/brendangregg/FlameGraph.git
+git clone https://github.com/Patrick08T/FlameGraph.git
 ```
 
 编译项目

@@ -3,7 +3,7 @@
 
 [中文版教程](https://github.com/Patrick08T/LuaProfiler/blob/main/README_Zh.md)
 
-This tool depends on cmake3.0+, lua5.3+ and [FlameGraph](https://github.com/brendangregg/FlameGraph.git)
+This tool depends on cmake2.8+, lua5.3+ and [FlameGraph](https://github.com/brendangregg/FlameGraph.git)
 
 Please check your environment. 
 
@@ -11,19 +11,20 @@ Please check your environment.
 Like Perf, this tool can collect the function call stack in lua VM by frequency, and she can output a flamegraph.
 
 ## Usage
-install lua5.3+
+install lua5.3.6
 ```
-curl -R -O http://www.lua.org/ftp/lua-5.3.x.tar.gz
-tar zxf lua-5.3.x.tar.gz
-cd lua-5.3.x
+mkdir dep && cd dep
+curl -R -O http://www.lua.org/ftp/lua-5.3.6.tar.gz
+tar zxf lua-5.3.6.tar.gz
+cd lua-5.3.6
 make linux test
-make install
-cd ..
+sudo make install
+cd ../..
 ```
 
 install FlameGraph
 ```
-git clone https://github.com/brendangregg/FlameGraph.git
+git clone https://github.com/Patrick08T/FlameGraph.git
 ```
 
 build project
